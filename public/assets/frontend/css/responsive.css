@@ -1,0 +1,483 @@
+/* Normal desktop :1200px. */
+
+@media (min-width: 1500px) and (max-width: 1920px) {
+    .owl-nav div.owl-prev {
+        left: 0;
+    }
+    .owl-nav div.owl-next {
+        left: auto;
+        right: 0;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1499px) {
+    .owl-nav div.owl-prev {
+        left: 0;
+    }
+    .owl-nav div.owl-next {
+        left: auto;
+        right: 0;
+    }
+    .angle-right::before {
+        width: 75px;
+    }
+}
+
+
+/* Normal desktop :992px. */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .main-menu ul li {
+        display: inline-block;
+        margin: 0 24px;
+    }
+    .owl-nav div.owl-prev {
+        left: 0;
+    }
+    .owl-nav div.owl-next {
+        left: auto;
+        right: 0;
+    }
+    .angle-right::before {
+        width: 75px;
+    }
+    .Order h6 {
+        font-size: 11px;
+    }
+    .final-check-out h4 {
+        font-size: 13px;
+    }
+    .check-out-btna button {
+        font-size: 14px;
+    }
+    .sidebar-inner a h5 {
+        font-size: 13px;
+    }
+    .cat-3 h5 {
+        font-size: 10px;
+    }
+    .sidebar-inner h5 {
+        font-size: 10px;
+    }
+    .shopping-border::before {
+        position: absolute;
+        width: 800px;
+        height: 412px;
+        content: "";
+        top: 43px;
+        left: 0;
+        border: 1px solid #b5b5b5;
+        border-top: 0;
+        border-bottom: 0;
+    }
+    .shopping-border::before {
+        position: absolute;
+        width: 800px;
+        height: 412px;
+        content: "";
+        top: 43px;
+        left: 0;
+        border: 1px solid #b5b5b5;
+        border-top: 0;
+        border-bottom: 0;
+    }
+    .width-800 {
+        width: 800px;
+    }
+}
+
+
+/* Tablet desktop :768px. */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .main-menu ul li {
+        display: inline-block;
+        margin: 0 8px;
+    }
+    .sidebar-title {
+        padding-left: 5px;
+    }
+    .card-header {
+        padding-left: 5px;
+    }
+    #headingOne h5 button.btn-link.collapsed::after {
+        right: -2px;
+    }
+    #headingOne h5 button.btn-link::after {
+        right: -2px;
+    }
+    .sidebar-inner {
+        padding-left: 5px;
+        padding-right: 15px;
+    }
+    .angle-right::before {
+        width: 30px;
+        left: 90%;
+    }
+    .angle-right::after {
+        left: 110%;
+    }
+    .owl-nav div.owl-prev {
+        left: 0;
+    }
+    .owl-nav div.owl-next {
+        left: auto;
+        right: 0;
+    }
+    .banner-text h4 {
+        margin: 0;
+        line-height: 1;
+        color: #fff;
+        font-size: 17px;
+        font-weight: 500;
+    }
+    .banner-text span {
+        display: block;
+        line-height: 1;
+        margin-bottom: 20px;
+        font-size: 13px;
+    }
+    .my-mt-30 {
+        margin-top: 30px;
+    }
+    .Order h6 {
+        font-size: 12px;
+    }
+    .Order h5 {
+        font-size: 12px;
+    }
+    .Order-check-out h5 {
+        font-size: 11px;
+    }
+    .final-check-out h4 {
+        font-size: 12px;
+    }
+    .pr-0 {
+        padding-right: 15px!important;
+    }
+    .mypr-0 {
+        padding-right: 0;
+    }
+    .table thead th {
+        font-size: 17px;
+    }
+    .slider-image p {
+        font-size: 11px;
+    }
+    .slider-for .item img {
+        height: 100%;
+        margin: 0;
+    }
+    .shopping-item i.fa-times {
+        font-size: 11px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .sidebar-inner a h5 {
+        font-size: 13px;
+    }
+    .cat-1 h6 {
+        font-size: 13px;
+    }
+    .cat-3 h5 {
+        font-size: 10px;
+    }
+    .sidebar-inner h5 {
+        font-size: 11px;
+    }
+    .modal-body-inner span {
+        font-size: 12px;
+    }
+     ::placeholder {
+        color: #222222;
+        font-size: 11px;
+        opacity: 1;
+    }
+    .shopping-border::before {
+        position: absolute;
+        width: 800px;
+        height: 412px;
+        content: "";
+        top: 43px;
+        left: 0;
+        border: 1px solid #b5b5b5;
+        border-top: 0;
+        border-bottom: 0;
+    }
+    .width-800 {
+        width: 800px;
+    }
+}
+
+
+/* small mobile :320px. */
+
+@media (max-width: 767px) {
+    .header-logo {
+        margin-bottom: 30px;
+    }
+    .main-menu-area {
+        background: transparent;
+    }
+    .My-cart {
+        margin-top: 30px;
+    }
+    .banner {
+        margin-top: 50px;
+    }
+    .banner-slider {
+        width: 100%;
+        height: 522px;
+    }
+    .my-mb-30 {
+        margin-bottom: 30px;
+    }
+    img.none-sm {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .title-section h2 {
+        color: #343434;
+        font-size: 30px;
+        margin: 0;
+        line-height: 1;
+        font-size: 22px;
+    }
+    img.lg-none {
+        display: none;
+    }
+    .single-steps {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .wrapper {
+        background: none;
+        width: 210px;
+        text-align: center;
+        padding-top: 20px;
+        transition: linear 0.5s;
+        -webkit-transition: linear 0.5s;
+        -moz-transition: linear 0.5s;
+        -ms-transition: linear 0.5s;
+        -o-transition: linear 0.5s;
+        padding-bottom: 30px;
+        margin: 0 auto;
+    }
+    .footer-info-right {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer-logo {
+        margin-bottom: 30px;
+    }
+    .footer-info-left {
+        color: #fff;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+    }
+    .pr-0 {
+        padding-right: 15px!important;
+    }
+    .my-mt-30 {
+        margin-top: 30px;
+    }
+    .payment-method-title h3 {
+        font-size: 15px;
+    }
+    .form-info-button button {
+        padding: 10px 38px;
+        margin-left: 15px;
+    }
+    .form-info-button button.gray-button {
+        margin-left: 0;
+    }
+    .form-info-button {
+        margin-bottom: 30px;
+    }
+    .products-title h4 {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .products-title h5 span {
+        color: #d3154b;
+        font-size: 13px;
+    }
+    .slider-infoinstock h3 {
+        font-size: 14px;
+    }
+    .slider-infoinstock h3 del {
+        margin-left: 5px;
+        font-size: 14px;
+    }
+    .slider-infoinstock-p p {
+        font-size: 12px;
+    }
+    .slider-infoinstock button.delivery {
+        margin-top: 20px;
+    }
+    .slider-form form input {
+        width: 55px;
+        height: 45px;
+        border: 1px solid #e8e8e8;
+        padding-left: 8px;
+        padding-right: 5px;
+    }
+    .border-gray {
+        padding-left: 15px;
+    }
+    .slider-for .item img {
+        margin: 0 auto;
+    }
+    .products-title h5 {
+        color: #4d4d4d;
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+    .my-table h4 {
+        color: #343434;
+        font-size: 20px;
+        text-transform: capitalize;
+        margin: 40px 0 30px 20px;
+    }
+    .pink::after {
+        display: none;
+    }
+    .pink::before {
+        display: none;
+    }
+    .owl-nav div.owl-prev {
+        left: 15px;
+    }
+    .owl-nav div.owl-next {
+        left: auto;
+        right: 15px;
+    }
+    .angle-right::after {
+        display: none;
+    }
+    .angle-right::before {
+        display: none;
+    }
+    .xs-mb-0 {
+        margin-bottom: 0;
+    }
+    .payment-method-title {
+        padding: 20px 0 20px 10px;
+    }
+    .payment-button button {
+        padding: 10px 19px;
+    }
+    .slider-flex img {
+        margin-right: 10px;
+        margin-bottom: 15px;
+        margin-left: 20px;
+    }
+    .mypr-0 {
+        padding-right: 0;
+    }
+    .mypagination {
+        padding: 15px 0 15px 0;
+        background: #f7f7f7;
+    }
+    .content-title h5 {
+        font-size: 16px;
+    }
+    .content-title a {
+        font-size: 11px;
+    }
+    .content-title form input {
+        width: 75%;
+    }
+    .content-title form i {
+        right: auto;
+        left: 80%;
+    }
+    .content-title h6 {
+        margin: 0;
+        margin-top: 6px;
+        margin-bottom: 10px;
+    }
+    .width-950 {
+        width: 950px;
+    }
+    .modal-header {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 30px;
+        padding-bottom: 0;
+        border: none;
+    }
+    .modal-header p {
+        font-size: 11px;
+    }
+    .shopping-border::before {
+        position: absolute;
+        width: 800px;
+        height: 412px;
+        content: "";
+        top: 43px;
+        left: 0;
+        border: 1px solid #b5b5b5;
+        border-top: 0;
+        border-bottom: 0;
+    }
+    .width-800 {
+        width: 800px;
+    }
+}
+
+
+/* Large Mobile :480px. */
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .form-info-button button {
+        padding: 10px 40px;
+    }
+    .payment-method-title {
+        margin-bottom: 35px;
+    }
+    .products-title h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .header-logo {
+        margin-bottom: 0px;
+    }
+    .owl-nav div.owl-prev {
+        left: 30px;
+    }
+    .owl-nav div.owl-next {
+        left: auto;
+        right: 30px;
+    }
+    .angle-right::after {
+        display: block;
+    }
+    .angle-right::before {
+        display: block;
+    }
+    .pink::after {
+        display: none;
+    }
+    .pink::before {
+        display: none;
+    }
+    .content-title a {
+        font-size: 13px;
+    }
+    .content-title form i {
+        right: auto;
+        left: 85%;
+    }
+    .modal-header {
+        padding-left: 60px;
+        padding-right: 15px;
+        padding-top: 30px;
+        padding-bottom: 0;
+        border: none;
+    }
+}

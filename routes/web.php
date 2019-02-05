@@ -11,8 +11,17 @@
 |
 */
 
+// Website Route
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/shop', 'ShopController@index')->name('shop');
 Route::get('/product', 'ProductController@index')->name('product');
 Route::resource('/cart', 'CartController');
 Route::resource('/checkout', 'CheckoutController');
+
+
+Auth::routes();
+
+
+// Admin Route
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/admin', 'DashboardController');

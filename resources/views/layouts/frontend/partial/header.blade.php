@@ -47,13 +47,13 @@
                     <div class="main-menu d-md-none">
                         <nav id="mobile-menu">
                             <ul class=" list-unstyled">
-                            <li> <a href="{{ route('shop') }}">Shop <i class="ti-angle-down"></i></a> </li>
-                                <li> <a href="#">Devices <i class="ti-angle-down"></i></a> </li>
-                                <li> <a href="#">Accessories <i class="ti-angle-down"></i></a> </li>
+                            <li> <a href="{{ route('welcome') }}">Home <i class="ti-angle-down"></i></a> </li>
+                                <li> <a href="{{ route('shop') }}">Shop <i class="ti-angle-down"></i></a> </li>
+                                <li> <a href="{{ route('product') }}">Product <i class="ti-angle-down"></i></a> </li>
                                 <li> <a href="#">Accessories by Device<i class="ti-angle-down"></i></a> </li>
                                 <li> <a href="#">New Products </a> </li>
                                 <li> <a href="#">Best Sellers </a> </li>
-                                <li> <a href="#">Big Sale</a> </li>
+                                <li> <a href="{{ route('cart.index') }}">Cart</a> </li>
                             </ul>
                         </nav>
                     </div>
@@ -61,13 +61,13 @@
                     <div class="main-menu d-none d-md-block">
                         <nav>
                             <ul class=" list-unstyled">
+                                <li> <a href="{{ route('welcome') }}">Home <i class="ti-angle-down"></i></a> </li>
                                 <li> <a href="{{ route('shop') }}">Shop <i class="ti-angle-down"></i></a> </li>
-                                <li> <a href="#">Devices <i class="ti-angle-down"></i></a> </li>
-                                <li> <a href="#">Accessories <i class="ti-angle-down"></i></a> </li>
+                                <li> <a href="{{ route('product') }}">Product <i class="ti-angle-down"></i></a> </li>
                                 <li> <a href="#">Accessories by Device<i class="ti-angle-down"></i></a> </li>
                                 <li> <a href="#">New Products </a> </li>
                                 <li> <a href="#">Best Sellers </a> </li>
-                                <li> <a href="#">Big Sale</a> </li>
+                                <li> <a href="{{ route('cart.index') }}">Cart</a> </li>
                             </ul>
                         </nav>
                     </div>

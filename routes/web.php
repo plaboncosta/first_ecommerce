@@ -13,3 +13,6 @@
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/shop', 'ShopController@index')->name('shop');
+Route::get('/product', 'ProductController@index')->name('product');
+Route::resource('/cart', 'CartController');
+Route::resource('/checkout', 'CheckoutController');

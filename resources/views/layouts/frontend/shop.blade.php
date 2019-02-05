@@ -1,5 +1,5 @@
 @extends('layouts.frontend.app')
-@section('Shop', 'Welcome')
+@section('title', 'Shop')
 @push('css')
 
 @endpush

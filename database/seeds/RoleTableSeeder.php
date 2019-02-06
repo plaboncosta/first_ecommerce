@@ -12,7 +12,7 @@ class RoleTableSeeder extends Seeder
      */
     public function run()
     {
-        $now = Carbon::now()->toDateString();
+        $now = Carbon::now()->toDateTimeString();
         Role::insert([
             'name' => 'Admin',
             'created_at' => $now,

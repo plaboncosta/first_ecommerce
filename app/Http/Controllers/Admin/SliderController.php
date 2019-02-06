@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Slider;
 
-class DashboardController extends Controller
+class SliderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $sliders = Slider::all();
+        return view('admin.slider.index', compact('sliders'));
     }
 
     /**

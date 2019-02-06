@@ -24,4 +24,8 @@ Auth::routes();
 
 // Admin Route
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/admin', 'DashboardController');
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function(){
+    Route::resource('/dashboard', 'DashboardController');
+    Route::resource('/slider', 'SliderController');
+});
+

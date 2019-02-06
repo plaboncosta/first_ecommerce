@@ -1,7 +1,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
-        <a href="{{ route('admin.index') }}"><img src="{{ asset('assets/backend') }}/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+        <a href="{{ route('admin.dashboard.index') }}"><img src="{{ asset('assets/backend') }}/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
     </div>
     <div class="container-fluid">
         <div class="navbar-btn">
@@ -44,7 +44,13 @@
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                <li><a href="{{ route('admin.index') }}" class="active"><i class="fa fa-calendar"></i> <span>Dashboard</span></a></li>
+                <li><a href="{{ route('admin.dashboard.index') }}" class="active"><i class="fa fa-calendar"></i> <span>Dashboard</span></a></li>
+                <li>
+                    <a href="{{ route('admin.slider.index') }}">
+                        <i class="fa fa-sliders"></i>
+                        <span>Slider</span>
+                    </a>
+                </li>
                 <li><a href="{{ route('welcome') }}" class="" target="_blank"><i class="lnr lnr-home"></i> <span>Home</span></a></li>
                 <li>
                     <a href="{{ route('logout') }}" onclick="$

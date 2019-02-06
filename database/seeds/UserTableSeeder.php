@@ -12,7 +12,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $now = Carbon::now()->toDateString();
+        $now = Carbon::now()->toDateTimeString();
         User::insert([
             'role_id' => 1,
             'name' => 'Plabon Costa',
@@ -21,5 +21,18 @@ class UserTableSeeder extends Seeder
             'password' => bcrypt('rootadmin'),
             'created_at' => $now,
         ]);
+
+
+        for ($i=1; $i <= 10 ; $i++) {
+            User::create([
+                'role_id' => 0,
+                'name' => 'User Costa' . $i,
+                'username' => 'User' . $i,
+                'email' => 'user' . $i . '@gmail.com',
+                'password' => bcrypt('rootuser'),
+                'created_at' => $now,
+            ]);
+        }
+        
     }
 }

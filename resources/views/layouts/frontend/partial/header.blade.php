@@ -65,8 +65,20 @@
                                 <li> <a href="{{ route('shop') }}">Shop <i class="ti-angle-down"></i></a> </li>
                                 <li> <a href="{{ route('product') }}">Product <i class="ti-angle-down"></i></a> </li>
                                 <li> <a href="#">Accessories by Device<i class="ti-angle-down"></i></a> </li>
-                                <li> <a href="#">New Products </a> </li>
-                                <li> <a href="#">Best Sellers </a> </li>
+                                @guest
+                                    <li> <a href="{{ route('login') }}">Login </a> </li>
+                                    <li> <a href="{{ route('register') }}">Register </a> </li>
+                                @else
+                                    <li>
+                                        <a href="{{ route('logout') }}" onclick="$
+                                            event.preventDefault();
+                                            document.getElementById('logout-form').submit();
+                                        ">Logout</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                        </form>
+                                    </li>
+                                @endguest
                                 <li> <a href="{{ route('cart.index') }}">Cart</a> </li>
                             </ul>
                         </nav>

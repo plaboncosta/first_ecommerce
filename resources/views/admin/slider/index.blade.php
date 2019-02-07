@@ -19,6 +19,13 @@
     .fa-trash {
         color: darkorange;
     }
+    .delete-button{
+        background-color: #fff;
+        border-width: 0px;
+        border-style: none;
+        border-color: #fff;
+        border-image: initial;
+    }
 
 </style>
 @endpush
@@ -64,7 +71,7 @@
                                         <td>{{ $slider->updated_at }}</td>
                                         <td>
                                             <a href="{{ route('admin.slider.edit', $slider->id) }}"><i class="fa fa-edit fa-lg"></i></a>
-                                            <button type="button" onclick="onDelete({{ $slider->id }})"><i class="fa fa-trash fa-lg"></i></button>
+                                            <button class="delete-button" type="button" onclick="onDelete({{ $slider->id }})"><i class="fa fa-trash fa-lg"></i></button>
                                             <form id="delete-form-{{ $slider->id }}" action="{{ route('admin.slider.delete', $slider->id) }}"
                                                 style="display:none ;">
                                                 @csrf

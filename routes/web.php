@@ -26,6 +26,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function(){
     Route::resource('/dashboard', 'DashboardController');
+    Route::get('slider/delete/{id}', 'SliderController@delete')->name('slider.delete');
     Route::resource('/slider', 'SliderController');
 });
 

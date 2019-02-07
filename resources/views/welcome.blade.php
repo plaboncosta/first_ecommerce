@@ -1,7 +1,18 @@
 @extends('layouts.frontend.app')
 @section('title', 'Welcome')
 @push('css')
-
+    <style>
+        @foreach($sliders as $slider)
+            .{{ str_slug($slider->title) }} {
+                background-image: url({{ Storage::disk('public')->url('slider/') . $slider->image }}) !important;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+                height: 100%;
+                width: 100%;
+            }
+        @endforeach
+    </style>
 @endpush
 @section('content')
 <main>
@@ -99,10 +110,9 @@
                 <div class="col-12 col-md-6">
                     <div class="banner-slider">
                         <div class="banner-slider slider-active">
-                            <div class="banner-single-slider single-slider"></div>
-                            <div class="banner-single-slider single-slider"></div>
-                            <div class="banner-single-slider single-slider"></div>
-                            <div class="banner-single-slider single-slider"></div>
+                            @foreach($sliders as $slider)
+                            <div class="{{ str_slug($slider->title) }} single-slider"></div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

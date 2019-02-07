@@ -8,6 +8,7 @@ use App\Slider;
 use Carbon\Carbon;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Brian2694\Toastr\Facades\Toastr;
 
 class SliderController extends Controller
 {
@@ -52,7 +53,6 @@ class SliderController extends Controller
             // Create unique name for image
             $currentDate = Carbon::now()->toDateString();
             $imagename = $slug . '-' . $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
-            // $imagename = 'default.png';
 
             // Check if Slider is exists
             if(!Storage::disk('public')->exists('slider'))
@@ -72,7 +72,8 @@ class SliderController extends Controller
         $slider->title = $request->title;
         $slider->image = $imagename;
         $slider->save();
-
+        
+        Toastr::success('Slider Created Sucessfully', 'Sucess!');
         return redirect()->route('admin.slider.index');
     }
 
@@ -95,7 +96,8 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $slider = Slider::findOrFail($id);
+        return view('admin.slider.edit', compact('slider'));
     }
 
     /**
@@ -107,7 +109,48 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'image' => 'image',
+        ]);
+        
+        $slider = Slider::findOrFail($id);
+        $image = $request->file('image');
+        $slug = str_slug($request->title);
+        if($image)
+        {
+            // Create Image name
+            $currentDate = Carbon::now()->toDateString();
+            $imagename = $slug . '-' . $currentDate . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+
+            // Check if Slider is folder is exists
+            if(!Storage::disk('public')->exists('slider'))
+            {
+                Storage::disk('public')->makeDirectory('slider');
+            }
+
+            // Delete Old Slider image
+            if(Storage::disk('public')->exists('slider/') . $slider->image)
+            {
+                Storage::disk('public')->delete('slider/' . $slider->image);
+            }
+
+
+            // Resize slider image and upload
+            $sliderImage = Image::make($image)->resize(624, 517)->save($imagename);
+            Storage::disk('public')->put('slider/' . $imagename, $sliderImage);
+        }
+        else {
+            $imagename = $slider->image;
+        }
+
+        
+        // Push all data into Sliders Table
+        $slider->title = $request->title;
+        $slider->image = $imagename;
+        $slider->save();
+        Toastr::success('Slider Updated Sucessfully', 'Sucess!');
+        return redirect()->route('admin.slider.index');
     }
 
     /**
@@ -118,6 +161,22 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $id;
+    }
+
+    public function delete($id)
+    {
+        $slider = Slider::findOrFail($id);
+
+        // Delete Slide r Old Image
+        if(Storage::disk('public')->exists('slider/' . $slider->image))
+        {
+            Storage::disk('public')->delete('slider/' . $slider->image);
+        }
+
+        $slider->delete();
+
+        Toastr::success('Slider Deleted Sucessfully', 'Sucess!');
+        return redirect()->back();
     }
 }

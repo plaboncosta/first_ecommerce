@@ -44,11 +44,23 @@
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                <li><a href="{{ route('admin.dashboard.index') }}" class="active"><i class="fa fa-calendar"></i> <span>Dashboard</span></a></li>
+            <li><a href="{{ route('admin.dashboard.index') }}" class="{{ Request::is('admin/dashboard') ? 'active' : '' }}"><i class="fa fa-calendar"></i> <span>Dashboard</span></a></li>
                 <li>
-                    <a href="{{ route('admin.slider.index') }}">
+                    <a href="{{ route('admin.slider.index') }}" class="{{ Request::is('admin/slider*') ? 'active' : '' }}">
                         <i class="fa fa-sliders"></i>
                         <span>Slider</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.category.index') }}" class="{{ Request::is('admin/category*') ? 'active' : '' }}">
+                        <i class="fa fa-list-alt"></i>
+                        <span>Category</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.product.index') }}" class="{{ Request::is('admin/product*') ? 'active' : '' }}">
+                        <i class="fa fa-object-group"></i>
+                        <span>Product</span>
                     </a>
                 </li>
                 <li><a href="{{ route('welcome') }}" class="" target="_blank"><i class="lnr lnr-home"></i> <span>Home</span></a></li>

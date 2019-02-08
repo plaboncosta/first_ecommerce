@@ -1,5 +1,5 @@
 @extends('layouts.backend.app')
-@section('title', 'Slider')
+@section('title', 'Category')
 @push('css')
 <style>
     .badge {
@@ -9,11 +9,6 @@
     .panel .panel-heading {
         padding-top: 15px;
         padding-bottom: 10px;
-    }
-
-    .slider-image {
-        widows: 130px;
-        height: 90px;
     }
 
     .fa-trash {
@@ -36,42 +31,39 @@
     <div class="main-content">
         <div class="container-fluid">
             <h3 class="page-title">
-                Sliders <span class="badge">{{ $sliders->count() }}</span>
+                Categories <span class="badge">{{ $categories->count() }}</span>
             </h3>
             <div class="row">
                 <div class="col-md-12">
                     <!-- BORDERED TABLE -->
                     <div class="panel">
                         <div class="panel-heading">
-                            <a href="{{ route('admin.slider.create') }}" class="btn btn-info">Add New</a>
+                            <a href="{{ route('admin.category.create') }}" class="btn btn-info">Add New</a>
                         </div>
                         <div class="panel-body">
                             <table class="table table-bordered" id="myTable">
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Title</th>
-                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Slug</th>
                                         <th>Created At</th>
                                         <th>Updated At</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($sliders as $key => $slider)
+                                    @foreach ($categories as $key => $category)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $slider->title }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $category->slug }}</td>
+                                        <td>{{ $category->created_at }}</td>
+                                        <td>{{ $category->updated_at }}</td>
                                         <td>
-                                            <img src="{{ Storage::disk('public')->url('slider/') . $slider->image }}"
-                                                alt="{{ $slider->title }}" class="img-responsive img-thumbnail slider-image">
-                                        </td>
-                                        <td>{{ $slider->created_at }}</td>
-                                        <td>{{ $slider->updated_at }}</td>
-                                        <td>
-                                            <a href="{{ route('admin.slider.edit', $slider->id) }}"><i class="fa fa-edit fa-lg"></i></a>
-                                            <button class="delete-button" type="button" onclick="onDelete({{ $slider->id }})"><i class="fa fa-trash fa-lg"></i></button>
-                                            <form id="delete-form-{{ $slider->id }}" action="{{ route('admin.slider.delete', $slider->id) }}"
+                                            <a href="{{ route('admin.category.edit', $category->id) }}"><i class="fa fa-edit fa-lg"></i></a>
+                                            <button class="delete-button" type="button" onclick="onDelete({{ $category->id }})"><i class="fa fa-trash fa-lg"></i></button>
+                                            <form id="delete-form-{{ $category->id }}" action="{{ route('admin.category.delete', $category->id) }}"
                                                 style="display:none ;">
                                                 @csrf
                                                 @method('DELETE')

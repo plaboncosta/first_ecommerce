@@ -28,5 +28,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('/dashboard', 'DashboardController');
     Route::get('slider/delete/{id}', 'SliderController@delete')->name('slider.delete');
     Route::resource('/slider', 'SliderController');
+    Route::get('category/delete/{id}', 'CategoryController@delete')->name('category.delete');
+    Route::resource('/category', 'CategoryController');
+    Route::get('product/delete/{id}', 'ProductController@delete')->name('product.delete');
+    Route::resource('/product', 'ProductController');
 });
 

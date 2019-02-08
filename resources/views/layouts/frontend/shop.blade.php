@@ -144,86 +144,12 @@
                                         <div class="card-body">
 
                                             <div class="sidebar-inner">
-
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Apple </h6>
-                                                    <span>(34)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Samsung </h6>
-                                                    <span>(32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Huawei </h6>
-                                                    <span>(14)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Oppo </h6>
-                                                    <span>(41)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Nokia </h6>
-                                                    <span>(12)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Vivo </h6>
-                                                    <span>(45)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>LG </h6>
-                                                    <span>(23)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Dialog </h6>
-                                                    <span>(04)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Mi </h6>
-                                                    <span>(19)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Xiaomi </h6>
-                                                    <span>(21)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Lenovo </h6>
-                                                    <span>(22)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Micromax </h6>
-                                                    <span>(65)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Greentel </h6>
-                                                    <span>(77)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Panasonic </h6>
-                                                    <span>(34)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Blackberry </h6>
-                                                    <span>(23)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Ewis </h6>
-                                                    <span>(32)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Haier </h6>
-                                                    <span>(11)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Energizer </h6>
-                                                    <span>(14)</span>
-                                                </div>
-                                                <div class="d-flex align-items-center justify-content-between cat-1">
-                                                    <h6>Xgimi </h6>
-                                                    <span>(54)</span>
-                                                </div>
-
-
-
+                                                @foreach($categories as $category)
+                                                    <div class="d-flex align-items-center justify-content-between cat-1">
+                                                        <h6>{{ $category->name }}</h6>
+                                                        <span>({{ $category->products->count() }})</span>
+                                                    </div>
+                                                @endforeach
                                                 <div id="accordion1">
                                                     <div class="card">
                                                         <div class="card-header" id="headingOne1">

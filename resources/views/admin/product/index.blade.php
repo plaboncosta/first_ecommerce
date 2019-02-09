@@ -70,15 +70,23 @@
                                         <td>{{ $product->name }}</td>
                                         <td>{{ $product->category->name }}</td>
                                         <td>
-                                            {{ $product->image }}
+                                            <img class="img-responsive product-image" src="{{ Storage::disk('public')->url('product/display/'. $product->image) }}" alt="{{ $product->name }}">
                                         </td>
                                         <td>
-                                            {{ $product->multiple_image  }}
+                                            @foreach(json_decode($product->multiple_image) as $checking_image)
+                                                <img class="img-responsive product-image" src="{{ Storage::disk('public')->url('product/checking/'. $checking_image) }}" alt="{{ $product->name }}">
+                                                <br>
+                                            @endforeach
                                         </td>
                                         <td>{{ $product->present_price }}</td>
                                         <td>{{ $product->previous_price }}</td>
-                                        <td>{{ $product->featured_image }}</td>
-                                        <td>{{ str_limit($product->description, 20) }}</td>
+                                        <td>
+                                            @foreach(json_decode($product->featured_image) as $featured_image)
+                                                <img class="img-responsive product-image" src="{{ Storage::disk('public')->url('product/featured/'. $featured_image) }}" alt="{{ $product->name }}">
+                                                <br>
+                                            @endforeach
+                                        </td>
+                                        <td>{!! str_limit($product->description, 20) !!}</td>
                                         <td>{{ $product->stock }}</td>
                                         <td>{{ $product->compare }}</td>
                                         <td>

@@ -19,10 +19,10 @@ class CreateProductsTable extends Migration
             $table->string('name')->unique();
             $table->string('slug')->unique();
             $table->string('image')->default('default.png');
-            $table->string('multiple_image')->default('default.png');
+            $table->string('multiple_image')->default('["default.png"]');
             $table->float('present_price');
             $table->float('previous_price');
-            $table->string('featured_image')->default('default.png');
+            $table->string('featured_image')->default('["default.png"]');
             $table->text('description');
             $table->boolean('stock')->default(false);
             $table->boolean('compare')->default(false);

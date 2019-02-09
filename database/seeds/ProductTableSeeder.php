@@ -21,7 +21,6 @@ class ProductTableSeeder extends Seeder
         		'slug' => 'apple-' . $i,
         		'present_price' => [300, 200, 400][array_rand([300, 200, 400])],
         		'previous_price' => [500, 600, 800][array_rand([500, 600, 800])],
-        		'featured_image' => 'default.png',
         		'description' => 'Lorem ipsum dolor sit amet, consecteturadipisicing elit. Quisquam perspiciatis accusamus veniam, blanditiis aut eius amet fugiat illo commodi adipisci quasi deleniti nemo, dolorum eos perferendis provident reprehenderit voluptatum minima.',
         	]);
         }
@@ -35,7 +34,6 @@ class ProductTableSeeder extends Seeder
         		'slug' => 'samsung-' . $i,
         		'present_price' => [300, 200, 400][array_rand([300, 200, 400])],
         		'previous_price' => [500, 600, 800][array_rand([500, 600, 800])],
-        		'featured_image' => 'default.png',
         		'description' => 'Lorem ipsum dolor sit amet, consecteturadipisicing elit. Quisquam perspiciatis accusamus veniam, blanditiis aut eius amet fugiat illo commodi adipisci quasi deleniti nemo, dolorum eos perferendis provident reprehenderit voluptatum minima.',
         	]);
         }
@@ -50,7 +48,6 @@ class ProductTableSeeder extends Seeder
         		'slug' => 'xiaomi-' . $i,
         		'present_price' => [300, 200, 400][array_rand([300, 200, 400])],
         		'previous_price' => [500, 600, 800][array_rand([500, 600, 800])],
-        		'featured_image' => 'default.png',
         		'description' => 'Lorem ipsum dolor sit amet, consecteturadipisicing elit. Quisquam perspiciatis accusamus veniam, blanditiis aut eius amet fugiat illo commodi adipisci quasi deleniti nemo, dolorum eos perferendis provident reprehenderit voluptatum minima.',
         	]);
         }
@@ -64,7 +61,6 @@ class ProductTableSeeder extends Seeder
         		'slug' => 'oppo-' . $i,
         		'present_price' => [300, 200, 400][array_rand([300, 200, 400])],
         		'previous_price' => [500, 600, 800][array_rand([500, 600, 800])],
-        		'featured_image' => 'default.png',
         		'description' => 'Lorem ipsum dolor sit amet, consecteturadipisicing elit. Quisquam perspiciatis accusamus veniam, blanditiis aut eius amet fugiat illo commodi adipisci quasi deleniti nemo, dolorum eos perferendis provident reprehenderit voluptatum minima.',
         	]);
         }
@@ -79,7 +75,6 @@ class ProductTableSeeder extends Seeder
         		'slug' => 'symphony-' . $i,
         		'present_price' => [300, 200, 400][array_rand([300, 200, 400])],
         		'previous_price' => [500, 600, 800][array_rand([500, 600, 800])],
-        		'featured_image' => 'default.png',
         		'description' => 'Lorem ipsum dolor sit amet, consecteturadipisicing elit. Quisquam perspiciatis accusamus veniam, blanditiis aut eius amet fugiat illo commodi adipisci quasi deleniti nemo, dolorum eos perferendis provident reprehenderit voluptatum minima.',
         	]);
         }
@@ -94,7 +89,6 @@ class ProductTableSeeder extends Seeder
         		'slug' => 'nokia-' . $i,
         		'present_price' => [300, 200, 400][array_rand([300, 200, 400])],
         		'previous_price' => [500, 600, 800][array_rand([500, 600, 800])],
-        		'featured_image' => 'default.png',
         		'description' => 'Lorem ipsum dolor sit amet, consecteturadipisicing elit. Quisquam perspiciatis accusamus veniam, blanditiis aut eius amet fugiat illo commodi adipisci quasi deleniti nemo, dolorum eos perferendis provident reprehenderit voluptatum minima.',
         	]);
         }
@@ -109,7 +103,6 @@ class ProductTableSeeder extends Seeder
         		'slug' => 'huawei-' . $i,
         		'present_price' => [300, 200, 400][array_rand([300, 200, 400])],
         		'previous_price' => [500, 600, 800][array_rand([500, 600, 800])],
-        		'featured_image' => 'default.png',
         		'description' => 'Lorem ipsum dolor sit amet, consecteturadipisicing elit. Quisquam perspiciatis accusamus veniam, blanditiis aut eius amet fugiat illo commodi adipisci quasi deleniti nemo, dolorum eos perferendis provident reprehenderit voluptatum minima.',
         	]);
         }
@@ -124,7 +117,6 @@ class ProductTableSeeder extends Seeder
         		'slug' => 'vivo-' . $i,
         		'present_price' => [300, 200, 400][array_rand([300, 200, 400])],
         		'previous_price' => [500, 600, 800][array_rand([500, 600, 800])],
-        		'featured_image' => 'default.png',
         		'description' => 'Lorem ipsum dolor sit amet, consecteturadipisicing elit. Quisquam perspiciatis accusamus veniam, blanditiis aut eius amet fugiat illo commodi adipisci quasi deleniti nemo, dolorum eos perferendis provident reprehenderit voluptatum minima.',
         	]);
         }
@@ -139,7 +131,6 @@ class ProductTableSeeder extends Seeder
         		'slug' => 'dialog-' . $i,
         		'present_price' => [300, 200, 400][array_rand([300, 200, 400])],
         		'previous_price' => [500, 600, 800][array_rand([500, 600, 800])],
-        		'featured_image' => 'default.png',
         		'description' => 'Lorem ipsum dolor sit amet, consecteturadipisicing elit. Quisquam perspiciatis accusamus veniam, blanditiis aut eius amet fugiat illo commodi adipisci quasi deleniti nemo, dolorum eos perferendis provident reprehenderit voluptatum minima.',
         	]);
         }
@@ -154,7 +145,6 @@ class ProductTableSeeder extends Seeder
         		'slug' => 'blackberry-' . $i,
         		'present_price' => [300, 200, 400][array_rand([300, 200, 400])],
         		'previous_price' => [500, 600, 800][array_rand([500, 600, 800])],
-        		'featured_image' => 'default.png',
         		'description' => 'Lorem ipsum dolor sit amet, consecteturadipisicing elit. Quisquam perspiciatis accusamus veniam, blanditiis aut eius amet fugiat illo commodi adipisci quasi deleniti nemo, dolorum eos perferendis provident reprehenderit voluptatum minima.',
         	]);
         }

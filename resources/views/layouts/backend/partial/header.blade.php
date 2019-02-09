@@ -63,6 +63,12 @@
                         <span>Product</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('admin.specification.index') }}" class="{{ Request::is('admin/specification*') ? 'active' : '' }}">
+                        <i class="fa fa-info-circle "></i>
+                        <span>Specification</span>
+                    </a>
+                </li>
                 <li><a href="{{ route('welcome') }}" class="" target="_blank"><i class="lnr lnr-home"></i> <span>Home</span></a></li>
                 <li>
                     <a href="{{ route('logout') }}" onclick="$

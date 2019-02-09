@@ -31,7 +31,7 @@ class SpecificationTableSeeder extends Seeder
 	        	'GPU' => 'Mali-G72 MP18',
 	        	'Memory' => 'microSD, up to 512 GB (uses SIM 2 slot)',
 	        	'Internal' => '128 GB, 6 GB RAM',
-	        	'Main Camera' => '12 MP, f/1.5-2.4, 26mm (wide), 1/2.55", 1.4µm, dual pixel PDAF, OIS',
+	        	'Main_Camera' => '12 MP, f/1.5-2.4, 26mm (wide), 1/2.55", 1.4µm, dual pixel PDAF, OIS',
         	]);
     	}
         

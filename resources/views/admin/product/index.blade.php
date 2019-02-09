@@ -87,8 +87,20 @@
                                             @endforeach
                                         </td>
                                         <td>{!! str_limit($product->description, 20) !!}</td>
-                                        <td>{{ $product->stock }}</td>
-                                        <td>{{ $product->compare }}</td>
+                                        <td>
+                                            @if($product->stock == true)
+                                                <span class="label bg-success">available</span>
+                                            @else
+                                                <span class="label bg-danger">not available</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($product->compare == true)
+                                                <span class="label bg-info">comparing</span>
+                                            @else
+                                                <span class="label bg-warning">no compare</span>
+                                            @endif
+                                        </td>
                                         <td>
                                             <a href="{{ route('admin.product.edit', $product->id) }}"><i class="fa fa-edit fa-lg"></i></a>
                                             <button class="delete-button" type="button" onclick="onDelete({{ $product->id }})"><i class="fa fa-trash fa-lg"></i></button>

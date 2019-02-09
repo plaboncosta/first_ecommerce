@@ -32,7 +32,7 @@ class CreateSpecificationsTable extends Migration
             $table->string('GPU')->nullable();
             $table->string('Memory')->nullable();
             $table->string('Internal')->nullable();
-            $table->string('Main Camera')->nullable();
+            $table->string('Main_Camera')->nullable();
 
             $table->foreign('product_id')
                     ->references('id')->on('products')

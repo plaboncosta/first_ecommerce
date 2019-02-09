@@ -32,5 +32,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('/category', 'CategoryController');
     Route::get('product/delete/{id}', 'ProductController@delete')->name('product.delete');
     Route::resource('/product', 'ProductController');
+    Route::get('specification/delete/{id}', 'SpecificationController@delete')->name('specification.delete');
+    Route::resource('/specification', 'SpecificationController');
 });
 

@@ -110,7 +110,7 @@ display: block;
 <!-- END MAIN -->
 @endsection
 @push('js')
-<script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+<script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=n0hdh2brxco06928opalzi310t778gsinccjcqowsbz7rft2"></script>
 <script>tinymce.init({ selector:'textarea' });</script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 @endpush

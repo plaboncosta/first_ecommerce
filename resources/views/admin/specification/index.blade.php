@@ -43,9 +43,6 @@
                         <div class="panel-body">
                             <table class="table table-bordered" id="myTable">
                                 <thead>
-
-
-
                                     <tr>
                                         <th>Id</th>
                                         <th>Product</th>
@@ -74,23 +71,23 @@
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $specification->product->name }}</td>
-                                        <td>{{ $specification->Color }}</td>
-                                        <td>{{ $specification->Network }}</td>
-                                        <td>{{ $specification->Dimensions }}</td>
-                                        <td>{{ $specification->Weight }}</td>
-                                        <td>{{ $specification->Build }}</td>
-                                        <td>{{ $specification->Sim }}</td>
-                                        <td>{{ $specification->Display }}</td>
-                                        <td>{{ $specification->Size }}</td>
-                                        <td>{{ $specification->Resolution }}</td>
-                                        <td>{{ $specification->Multitouch }}</td>
-                                        <td>{{ $specification->Platform }}</td>
-                                        <td>{{ $specification->Chipset }}</td>
-                                        <td>{{ $specification->CPU }}</td>
-                                        <td>{{ $specification->GPU }}</td>
-                                        <td>{{ $specification->Memory }}</td>
-                                        <td>{{ $specification->Internal }}</td>
-                                        <td>{{ $specification->Main_Camera }}</td>
+                                        <td>{{ str_limit($specification->Color, 10) }}</td>
+                                        <td>{{ str_limit($specification->Network, 10) }}</td>
+                                        <td>{{ str_limit($specification->Dimensions, 10) }}</td>
+                                        <td>{{ str_limit($specification->Weight, 10) }}</td>
+                                        <td>{{ str_limit($specification->Build, 10) }}</td>
+                                        <td>{{ str_limit($specification->Sim, 10) }}</td>
+                                        <td>{{ str_limit($specification->Display, 10) }}</td>
+                                        <td>{{ str_limit($specification->Size, 10) }}</td>
+                                        <td>{{ str_limit($specification->Resolution, 10) }}</td>
+                                        <td>{{ str_limit($specification->Multitouch, 10) }}</td>
+                                        <td>{{ str_limit($specification->Platform, 10) }}</td>
+                                        <td>{{ str_limit($specification->Chipset, 10) }}</td>
+                                        <td>{{ str_limit($specification->CPU, 10) }}</td>
+                                        <td>{{ str_limit($specification->GPU, 10) }}</td>
+                                        <td>{{ str_limit($specification->Memory, 10) }}</td>
+                                        <td>{{ str_limit($specification->Internal, 10) }}</td>
+                                        <td>{{ str_limit($specification->Main_Camera, 10) }}</td>
                                         <td>
                                             <a href="{{ route('admin.specification.edit', $specification->id) }}"><i class="fa fa-edit fa-lg"></i></a>
                                             <button class="delete-button" type="button" onclick="onDelete({{ $specification->id }})"><i class="fa fa-trash fa-lg"></i></button>

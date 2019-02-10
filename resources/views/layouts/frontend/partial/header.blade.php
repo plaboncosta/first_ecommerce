@@ -49,7 +49,6 @@
                             <ul class=" list-unstyled">
                             <li> <a href="{{ route('welcome') }}">Home <i class="ti-angle-down"></i></a> </li>
                                 <li> <a href="{{ route('shop') }}">Shop <i class="ti-angle-down"></i></a> </li>
-                                <li> <a href="{{ route('product') }}">Product <i class="ti-angle-down"></i></a> </li>
                                 <li> <a href="#">Accessories by Device<i class="ti-angle-down"></i></a> </li>
                                 <li> <a href="#">New Products </a> </li>
                                 <li> <a href="#">Best Sellers </a> </li>
@@ -63,8 +62,7 @@
                             <ul class=" list-unstyled">
                                 <li> <a href="{{ route('welcome') }}">Home <i class="ti-angle-down"></i></a> </li>
                                 <li> <a href="{{ route('shop') }}">Shop <i class="ti-angle-down"></i></a> </li>
-                                <li> <a href="{{ route('product') }}">Product <i class="ti-angle-down"></i></a> </li>
-                                <li> <a href="#">Accessories by Device<i class="ti-angle-down"></i></a> </li>
+                                <li> <a href="#">About<i class="ti-angle-down"></i></a> </li>
                                 @guest
                                     <li> <a href="{{ route('login') }}">Login </a> </li>
                                     <li> <a href="{{ route('register') }}">Register </a> </li>

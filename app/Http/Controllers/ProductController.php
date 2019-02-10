@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function show($slug)
     {
-        return view('layouts.frontend.product');
+    	$product = Product::where('slug', $slug)->first();
+    	$specification = $product->specifications()->first();
+    	return view('layouts.frontend.product', compact('product', 'specification'));
     }
 }

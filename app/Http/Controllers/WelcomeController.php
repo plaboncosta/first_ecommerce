@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use App\Slider;
 
 
@@ -12,6 +13,7 @@ class WelcomeController extends Controller
     public function index()
     {
         $sliders = Slider::all();
-        return view('welcome', compact('sliders'));
+        $products = Product::inRandomOrder()->get();
+        return view('welcome', compact('sliders', 'products'));
     }   
 }

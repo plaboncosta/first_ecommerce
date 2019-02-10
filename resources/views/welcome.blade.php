@@ -221,105 +221,24 @@
             <div class="row">
                 <div class="col-12">
                     <div class="Latest-phone-active owl-carousel">
+                        @foreach($products as $product)
                         <div class="single-pslider">
                             <div class="wrapper">
                                 <div class="pslider-thumb">
                                     <img class="hover" src="{{ asset('assets/frontend') }}/img/slider-img/slider-7.jpg" alt="slider-img">
-                                    <img src="{{ asset('assets/frontend') }}/img/slider-img/slider-1.png" alt="slider-img">
+                                    <a href="{{ route('product.show', $product->slug) }}">
+                                        <img style="height: 166px;" src="{{ Storage::disk('public')->url('product/display/'. $product->image) }}" alt="slider-img">
+                                    </a>
                                 </div>
                                 <div class="pslider-text">
-                                    <h3>Honor 9 light</h3>
-                                    <h4>LKR 34,800.00</h4>
-                                    <span><del>LKR 94,400.00</del></span>
+                                    <h3><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h3>
+                                    <h4>{{ $product->present_price }}</h4>
+                                    <span><del>LKR {{ $product->previous_price }}</del></span>
                                     <button>Add to cart</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="single-pslider">
-                            <div class="wrapper">
-                                <div class="pslider-thumb">
-                                    <img class="hover" src="{{ asset('assets/frontend') }}/img/slider-img/slider-7.jpg" alt="slider-img">
-                                    <img src="{{ asset('assets/frontend') }}/img/slider-img/slider-2.png" alt="slider-img">
-                                </div>
-                                <div class="pslider-text">
-                                    <h3>Honor 9 light</h3>
-                                    <h4>LKR 34,800.00</h4>
-                                    <span><del>LKR 94,400.00</del></span>
-                                    <button>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-pslider">
-                            <div class="wrapper">
-                                <div class="pslider-thumb">
-                                    <img class="hover" src="{{ asset('assets/frontend') }}/img/slider-img/slider-7.jpg" alt="slider-img">
-                                    <img src="{{ asset('assets/frontend') }}/img/slider-img/slider-3.png" alt="slider-img">
-                                </div>
-                                <div class="pslider-text">
-                                    <h3>Honor 9 light</h3>
-                                    <h4>LKR 34,800.00</h4>
-                                    <span><del>LKR 94,400.00</del></span>
-                                    <button>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-pslider">
-                            <div class="wrapper">
-                                <div class="pslider-thumb">
-                                    <img class="hover" src="{{ asset('assets/frontend') }}/img/slider-img/slider-7.jpg" alt="slider-img">
-                                    <img src="{{ asset('assets/frontend') }}/img/slider-img/slider-4.png" alt="slider-img">
-                                </div>
-                                <div class="pslider-text">
-                                    <h3>Honor 9 light</h3>
-                                    <h4>LKR 34,800.00</h4>
-                                    <span><del>LKR 94,400.00</del></span>
-                                    <button>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-pslider">
-                            <div class="wrapper">
-                                <div class="pslider-thumb">
-                                    <img class="hover" src="{{ asset('assets/frontend') }}/img/slider-img/slider-7.jpg" alt="slider-img">
-                                    <img src="{{ asset('assets/frontend') }}/img/slider-img/slider-5.png" alt="slider-img">
-                                </div>
-                                <div class="pslider-text">
-                                    <h3>Honor 9 light</h3>
-                                    <h4>LKR 34,800.00</h4>
-                                    <span><del>LKR 94,400.00</del></span>
-                                    <button>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-pslider">
-                            <div class="wrapper">
-                                <div class="pslider-thumb">
-                                    <img class="hover" src="{{ asset('assets/frontend') }}/img/slider-img/slider-7.jpg" alt="slider-img">
-                                    <img src="{{ asset('assets/frontend') }}/img/slider-img/slider-6.png" alt="slider-img">
-                                </div>
-                                <div class="pslider-text">
-                                    <h3>Honor 9 light</h3>
-                                    <h4>LKR 34,800.00</h4>
-                                    <span><del>LKR 94,400.00</del></span>
-                                    <button>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-pslider">
-                            <div class="wrapper">
-                                <div class="pslider-thumb">
-                                    <img class="hover" src="{{ asset('assets/frontend') }}/img/slider-img/slider-7.jpg" alt="slider-img">
-                                    <img src="{{ asset('assets/frontend') }}/img/slider-img/slider-1.png" alt="slider-img">
-                                </div>
-                                <div class="pslider-text">
-                                    <h3>Honor 9 light</h3>
-                                    <h4>LKR 34,800.00</h4>
-                                    <span><del>LKR 94,400.00</del></span>
-                                    <button>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </div>

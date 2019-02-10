@@ -1,7 +1,6 @@
 @extends('layouts.frontend.app')
 @section('title', 'Product')
 @push('css')
-
 @endpush
 @section('content')
 <main>
@@ -70,21 +69,17 @@
                                     <td>
                                         <div class="modal-body-inner2">
                                             <h5 class=" d-flex align-items-center">LKR 20,000.00</h5>
-
                                         </div>
                                     </td>
                                     <td>
                                         <div class="modal-body-inner">
                                             <h5>LKR 20,000.00</h5>
-
                                         </div>
                                     </td>
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -100,12 +95,12 @@
                 <div class="row align-items-center">
                     <div class="col-12 col-sm-6">
                         <div class="products-title text-center text-md-left">
-                            <h4>Samsung Galaxy S9 | 64GB</h4>
+                            <h4>{{ $product->name }}</h4>
                         </div>
                     </div>
                     <div class="col-12 col-sm-6">
                         <div class="products-title text-center text-md-right">
-                            <h5><a href="#">Home »</a> <span>Samsung Galaxy S9 | 64GB</span></h5>
+                            <h5><a href="#">Home »</a> <span>{{ $product->name }}</span></h5>
                         </div>
                     </div>
                 </div>
@@ -121,72 +116,56 @@
                     <div class="col-12 col-md-4 col-lg-4 ">
                         <div class="products-slider">
                             <!-- <div class="products-slider-active">
-                            <div class="products-single-slider"></div>
-                        </div> -->
+                                <div class="products-single-slider"></div>
+                            </div> -->
                             <div class="slider-for">
+                                @foreach(json_decode($product->multiple_image) as $checking_image)
                                 <div class="item">
-                                    <img src="{{ asset('assets/frontend') }}/img/product-img/product-1.png" />
+                                    <img src="{{ Storage::disk('public')->url('product/checking/'. $checking_image) }}" />
                                 </div>
-                                <div class="item">
-                                    <img src="{{ asset('assets/frontend') }}/img/product-img/product-2.png" />
-                                </div>
-                                <div class="item">
-                                    <img src="{{ asset('assets/frontend') }}/img/product-img/product-3.png" />
-                                </div>
-                                <div class="item">
-                                    <img src="{{ asset('assets/frontend') }}/img/product-img/product-2.png" />
-                                </div>
+                                @endforeach
                             </div>
-
                             <div class="slider-nav">
+                                @foreach(json_decode($product->multiple_image) as $checking_image)
                                 <div class="item">
-                                    <img src="{{ asset('assets/frontend') }}/img/product-img/product-5.png" />
+                                    <img src="{{ Storage::disk('public')->url('product/checking/'. $checking_image) }}" />
                                 </div>
-                                <div class="item">
-                                    <img src="{{ asset('assets/frontend') }}/img/product-img/product-2.png" />
-                                </div>
-                                <div class="item">
-                                    <img src="{{ asset('assets/frontend') }}/img/product-img/product-3.png" />
-                                </div>
-                                <div class="item">
-                                    <img src="{{ asset('assets/frontend') }}/img/product-img/product-2.png" />
-                                </div>
+                                @endforeach
                             </div>
-
                         </div>
                     </div>
-
                     <div class="col-12 col-md-8 col-lg-8">
                         <div class="product-slider-info">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="slider-infoinstock">
-                                        <h5><span>In Stock</span> | SKU: 0002</h5>
-                                        <h3>LKR 115,000.00 <del>LKR119,500.00</del></h3>
+                                        <h5><span>
+                                            @if($product->stock == true)
+                                            In Stock |
+                                            @endif
+                                        </span> SKU: 00{{ $product->id }}</h5>
+                                        <h3>LKR {{ $product->present_price }} <del>LKR{{ $product->previous_price }}</del></h3>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="slider-infoinstock">
                                         <button><a href="#"><img src="{{ asset('assets/frontend') }}/img/product-img/ribon.png" alt="product-img"></a>
-                                            <span>24 months</span>
-
-                                            <span>Warranty</span>
+                                        <span>24 months</span>
+                                        <span>Warranty</span>
                                         </button>
                                         <button class="delivery"><a href="#"><img src="{{ asset('assets/frontend') }}/img/product-img/cart.png"
-                                                    alt="product-img"></a>
-                                            <span>Same day</span>
-
-                                            <span>delivery</span>
+                                        alt="product-img"></a>
+                                        <span>Same day</span>
+                                        <span>delivery</span>
                                         </button>
                                     </div>
                                 </div>
-
                                 <div class="col-12">
                                     <div class="slider-infoinstock slider-infoinstock-p">
                                         <p><img src="{{ asset('assets/frontend') }}/img/product-img/track.png" alt="product-img">Islandwide
-                                            delivery available</p>
+                                        delivery available</p>
                                         <p><img src="{{ asset('assets/frontend') }}/img/product-img/check.png" alt="product-img">TRCSL approved
-                                            with agent warranty</p>
+                                        with agent warranty</p>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -202,29 +181,21 @@
                                     <div class="slider-image">
                                         <h4><i class="fas fa-plus"></i> add to compare</h4>
                                         <div class="slider-flex ">
-                                            <img src="{{ asset('assets/frontend') }}/img/product-img/4g.png" alt="">
-                                            <img src="{{ asset('assets/frontend') }}/img/product-img/display.png" alt="">
-                                            <img src="{{ asset('assets/frontend') }}/img/product-img/processore.png" alt="">
-                                            <img src="{{ asset('assets/frontend') }}/img/product-img/OS.png" alt="">
-                                            <img src="{{ asset('assets/frontend') }}/img/product-img/mp.png" alt="">
-                                            <img src="{{ asset('assets/frontend') }}/img/product-img/battery.png" alt="">
+                                            @foreach(json_decode($product->featured_image) as $featured_image)
+                                            <img src="{{ Storage::disk('public')->url('product/featured/'. $featured_image) }}" alt="">
+                                            @endforeach
                                         </div>
-                                        <p>The curved, 5.8-inch Infinity Screen stretches all the way to the edges, so
-                                            you'll get the biggest picture possible, without added bulk. Get rich, deep
-                                            contrast...</p>
+                                        <p>{!! $product->description !!}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
-
+    
     <div class="product-table">
         <div class="container">
             <div class="border-gray-2">
@@ -233,94 +204,74 @@
                         <div class="my-table">
                             <table class="table">
                                 <h4>Product Specification</h4>
-                                <!-- <thead>
-                                    <tr>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead> -->
                                 <tbody>
                                     <tr>
                                         <th>Colour</th>
-                                        <td>Midnight Black</td>
+                                        <td>{{ $specification->Color }}</td>
                                     </tr>
                                     <tr class="table-secondary">
                                         <th>Network</th>
-                                        <td>GSM / HSPA / LTE</td>
+                                        <td>{{ $specification->Network }}</td>
                                     </tr>
                                     <tr>
                                         <th>Dimensions</th>
-                                        <td> 161.9 x 76.4 x 8.8 mm (6.37 x 3.01 x 0.35 in)</td>
-
+                                        <td>{{ $specification->Dimensions }}</td>
                                     </tr>
                                     <tr class="table-secondary">
                                         <th>Weight</th>
-                                        <td> 201 g (7.09 oz)</td>
-
+                                        <td>{{ $specification->Weight }}</td>
                                     </tr>
                                     <tr>
                                         <th>Build </th>
-                                        <td> Front/back glass (Gorilla Glass 5), aluminum frame</td>
-
+                                        <td>{{ $specification->Build }}</td>
                                     </tr>
                                     <tr class="table-secondary">
                                         <th>Sim </th>
-                                        <td> Hybrid Dual SIM (Nano-SIM, dual stand-by)</td>
-
+                                        <td>{{ $specification->Sim }}</td>
                                     </tr>
                                     <tr>
                                         <th>Display </th>
-                                        <td> Super AMOLED capacitive touchscreen, 16M colors</td>
-
+                                        <td>{{ $specification->Display }}</td>
                                     </tr>
                                     <tr class="table-secondary">
                                         <th>Size </th>
-                                        <td> 6.4 inches, 103.2 cm2 (~83.4% screen-to-body ratio)</td>
-
+                                        <td>{{ $specification->Size }}</td>
                                     </tr>
                                     <tr>
                                         <th>Resolution </th>
-                                        <td>1440 x 2960 pixels, 18.5:9 ratio (~516 ppi density)</td>
-
+                                        <td>{{ $specification->Resolution }}</td>
                                     </tr>
                                     <tr class="table-secondary">
                                         <th>Multitouch </th>
-                                        <td>Yes</td>
-
+                                        <td>{{ $specification->Multitouch }}</td>
                                     </tr>
                                     <tr>
                                         <th>Platform </th>
-                                        <td>Android 8.1 (Oreo)</td>
-
+                                        <td>{{ $specification->Platform }}</td>
                                     </tr>
                                     <tr class="table-secondary">
                                         <th>Chipset </th>
-                                        <td>Exynos 9810 Octa (10 nm)</td>
-
+                                        <td>{{ $specification->Chipset }}</td>
                                     </tr>
                                     <tr>
                                         <th>CPU </th>
-                                        <td>Octa-core (4x2.7 GHz Mongoose M3 & 4x1.8 GHz Cortex-A55)</td>
-
+                                        <td>{{ $specification->CPU }}</td>
                                     </tr>
                                     <tr class="table-secondary">
                                         <th>GPU </th>
-                                        <td>Mali-G72 MP18</td>
-
+                                        <td>{{ $specification->GPU }}</td>
                                     </tr>
                                     <tr>
                                         <th>Memory </th>
-                                        <td>microSD, up to 512 GB (uses SIM 2 slot)</td>
-
+                                        <td>{{ $specification->Memory }}</td>
                                     </tr>
                                     <tr class="table-secondary">
                                         <th>Internal </th>
-                                        <td>128 GB, 6 GB RAM</td>
-
+                                        <td>{{ $specification->Internal }}</td>
                                     </tr>
                                     <tr>
                                         <th>Main Camera </th>
-                                        <td>12 MP, f/1.5-2.4, 26mm (wide), 1/2.55", 1.4µm, dual pixel PDAF, OIS</td>
-
+                                        <td>{{ $specification->Main_Camera }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -334,5 +285,4 @@
 </main>
 @endsection
 @push('js')
-
 @endpush

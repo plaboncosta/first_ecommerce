@@ -96,7 +96,7 @@
                                         </td>
                                         <td>
                                             @if($product->compare == true)
-                                                <span class="label bg-info">comparing</span>
+                                                <span class="label bg-success">comparing</span>
                                             @else
                                                 <span class="label bg-warning">no compare</span>
                                             @endif

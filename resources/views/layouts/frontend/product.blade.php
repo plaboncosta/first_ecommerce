@@ -179,7 +179,15 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="slider-image">
-                                        <h4><i class="fas fa-plus"></i> add to compare</h4>
+                                        @if($product->compare == false)
+                                            <h4><i class="fas fa-plus"></i> 
+                                            <a href="{{ route('product.compare', $product->slug) }}">add to compare</a>
+                                            </h4>
+                                        @else
+                                            <h4><i class="fas fa-minus"></i> 
+                                            <a href="{{ route('product.uncompare', $product->slug) }}">un compare</a>
+                                            </h4>
+                                        @endif
                                         <div class="slider-flex ">
                                             @foreach(json_decode($product->featured_image) as $featured_image)
                                             <img src="{{ Storage::disk('public')->url('product/featured/'. $featured_image) }}" alt="">

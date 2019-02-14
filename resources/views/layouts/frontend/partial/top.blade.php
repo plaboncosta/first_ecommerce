@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend') }}/css/meanmenu.css">
     <link rel="stylesheet" href="{{ asset('assets/frontend') }}/css/slick.css">
     <link rel="stylesheet" href="{{ asset('assets/frontend') }}/css/default.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     @stack('css')
     <link rel="stylesheet" href="{{ asset('assets/frontend') }}/css/style.css">
     <link rel="stylesheet" href="{{ asset('assets/frontend') }}/css/responsive.css">

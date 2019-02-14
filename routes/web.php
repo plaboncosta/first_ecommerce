@@ -15,6 +15,8 @@
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/shop', 'ShopController@index')->name('shop');
 Route::get('/product/show/{slug}', 'ProductController@show')->name('product.show');
+Route::get('/product/compare/{slug}', 'ProductController@compare')->name('product.compare');
+Route::get('/product/uncompare/{slug}', 'ProductController@uncompare')->name('product.uncompare');
 Route::resource('/cart', 'CartController');
 Route::resource('/checkout', 'CheckoutController');
 

@@ -14,8 +14,20 @@
 <script src="{{ asset('assets/frontend') }}/js/imagesloaded.pkgd.min.js"></script>
 <script src="{{ asset('assets/frontend') }}/js/jquery.magnific-popup.min.js"></script>
 <script src="{{ asset('assets/frontend') }}/js/plugins.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 @stack('js')
 <script src="{{ asset('assets/frontend') }}/js/main.js"></script>
+<script>
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+            toastr.error('{{ $error }}', 'Access denied!', {
+                closeButton: true,
+                progressBar: true,
+            });
+        @endforeach
+    @endif
+</script>
+{!! Toastr::message() !!}
 </body>
 
 </html>

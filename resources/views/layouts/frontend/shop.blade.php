@@ -1,7 +1,11 @@
 @extends('layouts.frontend.app')
 @section('title', 'Shop')
 @push('css')
-
+    <style>
+        .mobile-phones{
+            color: #d3154b !important;
+        }
+    </style>
 @endpush
 @section('content')
 <main>
@@ -104,29 +108,6 @@
                     <div class="shopping-list-sidebar">
                         <div class="sidebar">
                             <div class="sidebar-title">
-                                <h3>Category</h3>
-                            </div>
-                            <div class="sidebar-inner">
-                                <a href="#" class=" d-flex align-items-center justify-content-between">
-                                    <h5>Brands</h5>
-                                    <i class="ti-plus"></i>
-                                </a>
-                                <a href="#" class=" d-flex align-items-center justify-content-between">
-                                    <h5>Devices</h5>
-                                    <i class="ti-plus"></i>
-                                </a>
-                                <a href="#" class=" d-flex align-items-center justify-content-between">
-                                    <h5>Accessories</h5>
-                                    <i class="ti-plus"></i>
-                                </a>
-                                <a href="#" class=" d-flex align-items-center justify-content-between">
-                                    <h5>Accessories By Device</h5>
-                                    <i class="ti-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="sidebar">
-                            <div class="sidebar-title">
                                 <h3>Shop by</h3>
                             </div>
                             <div id="accordion">
@@ -146,41 +127,10 @@
                                             <div class="sidebar-inner">
                                                 @foreach($categories as $category)
                                                     <div class="d-flex align-items-center justify-content-between cat-1">
-                                                        <h6>{{ $category->name }}</h6>
+                                                        <h6><a href="{{ route('shop', ['category' => $category->slug]) }}">{{ $category->name }}</a></h6>
                                                         <span>({{ $category->products->count() }})</span>
                                                     </div>
                                                 @endforeach
-                                                <div id="accordion1">
-                                                    <div class="card">
-                                                        <div class="card-header" id="headingOne1">
-                                                            <h5 class="mb-0">
-                                                                <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                                    data-target="#collapseOne1" aria-expanded="true"
-                                                                    aria-controls="collapseOne1">
-                                                                    Price
-                                                                </button>
-                                                            </h5>
-                                                        </div>
-
-
-                                                        <div id="collapseOne1" class="collaps show" aria-labelledby="headingOne1"
-                                                            data-parent="#accordion1">
-                                                            <div class="card-body">
-                                                                <div class="cat-3">
-                                                                    <h5>LKR 0.00 - LKR 5,000.00 (54) </h5>
-                                                                    <h5>LKR 5,000.00 - LKR 10,,000.00 (23) </h5>
-                                                                    <h5>LKR 10,,000.00 - LKR 20,000.00 (45)</h5>
-                                                                    <h5>LKR 20,000.00 - LKR 80,000.00 (34) </h5>
-                                                                    <h5>LKR 80,000.00 and above (02) </h5>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-
                                             </div>
                                         </div>
                                     </div>
@@ -191,9 +141,17 @@
                             <div class="sidebar-title">
                                 <h3>COMPARE PRODUCTS</h3>
                             </div>
-                            <div class="sidebar-inner">
-                                <h5>You have no items to compare.</h5>
-                            </div>
+                            @if($compare_products->count() > 0)
+                                @foreach($compare_products as $compare_product)
+                                    <div class="sidebar-inner">
+                                        <a href="{{ route('product.show', $compare_product->slug) }}">{{ $compare_product->name }}</a>
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="sidebar-inner">
+                                    <h5>You have no items to compare.</h5>
+                                </div>
+                            @endif
                         </div>
                     </div>
 
@@ -206,12 +164,12 @@
                                     <div class="row align-items-center">
                                         <div class="col-6">
                                             <div class="content-title">
-                                                <h5>Mobile phones</h5>
+                                                <h5>{{ $categoryName }}</h5>
                                             </div>
                                         </div>
                                         <div class="col-6 text-right">
                                             <div class="content-title">
-                                                <a href="#">Home » <span>Mobile Phones</span></a>
+                                                <a href="{{ route('welcome') }}">Home » <span><a class="mobile-phones" href="{{ route('shop') }}">Mobile Phones</a></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -228,11 +186,8 @@
                                                 </div>
                                                 <div class="col-12 col-sm-7 col-md-6 text-left text-sm-right">
                                                     <div class="content-title">
-                                                        <form action="#">
-                                                            <label for="for">sort By</label>
-                                                            <input type="text" placeholder="Name">
-                                                            <i class="ti-angle-down"></i>
-                                                        </form>
+                                                        <h6>Price: <span><a href="{{ route('shop', ['category' => request()->category, 'sort' => 'low_high']) }}">Low to High</a></span> | <span><a href="{{ route('shop', ['category' => request()->category, 'sort' => 'high_low']) }}">High to Low</a></span>
+                                                        </h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -242,119 +197,31 @@
 
 
                                 <div class="row">
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-30">
-                                        <div class="main-content-mobile text-center">
-                                            <img src="{{ asset('assets/frontend') }}/img/mobile/mobile-1.png" alt="image">
-                                            <h6>Apple iPhone 5s</h6>
-                                            <span>LKR 38,800.00</span>
-                                            <button class=" btn">Add to cart</button>
+                                    @forelse($products as $product)
+                                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-30">
+                                            <div class="main-content-mobile text-center">
+                                                <a href="{{ route('product.show', $product->slug) }}">
+                                                    <img src="{{ Storage::disk('public')->url('product/display/'. $product->image) }}" alt="image">
+                                                </a>
+                                                <h6><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h6>
+                                                <span>LKR {{ $product->present_price }}</span>
+                                                <button class=" btn">Add to cart</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-30">
-                                        <div class="main-content-mobile text-center">
-                                            <img src="{{ asset('assets/frontend') }}/img/mobile/mobile-2.png" alt="image">
-                                            <h6>Apple iPhone 5s</h6>
-                                            <span>LKR 38,800.00</span>
-                                            <button class=" btn">Add to cart</button>
+                                    @empty
+                                        <div class="col-12">
+                                            <div class="alert alert-info mt-3 mb-3">
+                                                No item in this category!
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-30">
-                                        <div class="main-content-mobile text-center">
-                                            <img src="{{ asset('assets/frontend') }}/img/mobile/mobile-3.png" alt="image">
-                                            <h6>Apple iPhone 5s</h6>
-                                            <span>LKR 38,800.00</span>
-                                            <button class=" btn">Add to cart</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-30">
-                                        <div class="main-content-mobile text-center">
-                                            <img src="{{ asset('assets/frontend') }}/img/mobile/mobile-4.png" alt="image">
-                                            <h6>Apple iPhone 5s</h6>
-                                            <span>LKR 38,800.00</span>
-                                            <button class=" btn">Add to cart</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-30">
-                                        <div class="main-content-mobile text-center">
-                                            <img src="{{ asset('assets/frontend') }}/img/mobile/mobile-5.png" alt="image">
-                                            <h6>Apple iPhone 5s</h6>
-                                            <span>LKR 38,800.00</span>
-                                            <button class=" btn">Add to cart</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-30">
-                                        <div class="main-content-mobile text-center">
-                                            <img src="{{ asset('assets/frontend') }}/img/mobile/mobile-6.png" alt="image">
-                                            <h6>Apple iPhone 5s</h6>
-                                            <span>LKR 38,800.00</span>
-                                            <button class=" btn">Add to cart</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-30">
-                                        <div class="main-content-mobile text-center">
-                                            <img src="{{ asset('assets/frontend') }}/img/mobile/mobile-7.png" alt="image">
-                                            <h6>Apple iPhone 5s</h6>
-                                            <span>LKR 38,800.00</span>
-                                            <button class=" btn">Add to cart</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-30">
-                                        <div class="main-content-mobile text-center">
-                                            <img src="{{ asset('assets/frontend') }}/img/mobile/mobile-8.png" alt="image">
-                                            <h6>Apple iPhone 5s</h6>
-                                            <span>LKR 38,800.00</span>
-                                            <button class=" btn">Add to cart</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-30">
-                                        <div class="main-content-mobile text-center">
-                                            <img src="{{ asset('assets/frontend') }}/img/mobile/mobile-9.png" alt="image">
-                                            <h6>Apple iPhone 5s</h6>
-                                            <span>LKR 38,800.00</span>
-                                            <button class=" btn">Add to cart</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-30">
-                                        <div class="main-content-mobile text-center">
-                                            <img src="{{ asset('assets/frontend') }}/img/mobile/mobile-10.png" alt="image">
-                                            <h6>Apple iPhone 5s</h6>
-                                            <span>LKR 38,800.00</span>
-                                            <button class=" btn">Add to cart</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-30">
-                                        <div class="main-content-mobile text-center">
-                                            <img src="{{ asset('assets/frontend') }}/img/mobile/mobile-11.png" alt="image">
-                                            <h6>Apple iPhone 5s</h6>
-                                            <span>LKR 38,800.00</span>
-                                            <button class=" btn">Add to cart</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-30">
-                                        <div class="main-content-mobile text-center">
-                                            <img src="{{ asset('assets/frontend') }}/img/mobile/mobile-12.png" alt="image">
-                                            <h6>Apple iPhone 5s</h6>
-                                            <span>LKR 38,800.00</span>
-                                            <button class=" btn">Add to cart</button>
-                                        </div>
-                                    </div>
+                                    @endforelse
                                 </div>
 
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="mypagination">
                                             <nav aria-label="Page navigation example">
-                                                <ul class="pagination justify-content-center justify-content-md-start">
-
-                                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#" aria-label="Next">
-                                                            <span aria-hidden="true"><i class="ti-angle-right"></i></span>
-
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                                {{ $products->appends(request()->input())->links() }}
                                             </nav>
                                         </div>
                                     </div>

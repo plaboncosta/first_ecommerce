@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class=" col-6 col-sm-5 offset-1 offset-md-0 col-md-3 col-lg-2 pl-0">
-                    <div class="My-cart"> <i class="fas fa-shopping-cart"></i><button class="btn" type="submit">My Cart: 8</button></div>
+                    <div class="My-cart"> <i class="fas fa-shopping-cart"></i><button class="btn" type="submit">My Cart: {{ Cart::count() }}</button></div>
                 </div>
             </div>
         </div>

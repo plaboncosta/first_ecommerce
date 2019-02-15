@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Brian2694\Toastr\Facades\Toastr;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
 {
@@ -34,7 +37,21 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $duplicates = Cart::search(function($cartItem, $rowId) use ($request) {
+            return $cartItem->id == $request->id; 
+        });
+
+
+        if($duplicates->isNotEmpty())
+        {
+            Toastr::error('This Product is already exist in your cart ', 'Access denied!');
+            return redirect()->route('cart.index');
+        }
+
+        Cart::add($request->id, $request->name, 1, $request->present_price)->associate('App\Product');
+
+        Toastr::success('Product added in your cart successfully', 'Success!');
+        return redirect()->route('cart.index');
     }
 
     /**
@@ -68,7 +85,19 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'quantity' => 'required|numeric|between:1,5',
+        ]);
+
+        if($validator->fails())
+        {
+            Toastr::error('Quantity must be between 1 to 5', 'Access denied!');
+            return response()->json(['success' => false]);
+        }
+        Cart::update($id, $request->quantity);
+
+        Toastr::success('Quantity updated successfully', 'Success!');
+        return response()->json(['success' => false], 400);
     }
 
     /**
@@ -79,6 +108,9 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        Cart::remove($id);
+
+        Toastr::success('Product removed from your cart successfully', 'Success!');
+        return redirect()->back();
+    }   
 }

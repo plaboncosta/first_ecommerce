@@ -205,7 +205,13 @@
                                                 </a>
                                                 <h6><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h6>
                                                 <span>LKR {{ $product->present_price }}</span>
-                                                <button class=" btn">Add to cart</button>
+                                                <form action="{{ route('cart.store') }}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $product->id }}">
+                                                    <input type="hidden" name="name" value="{{ $product->name }}">
+                                                    <input type="hidden" name="present_price" value="{{ $product->present_price }}">
+                                                    <button type="submit" class=" btn">Add to cart</button>
+                                                </form>
                                             </div>
                                         </div>
                                     @empty

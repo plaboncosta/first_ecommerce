@@ -19,6 +19,7 @@ Route::get('/product/compare/{slug}', 'ProductController@compare')->name('produc
 Route::get('/product/uncompare/{slug}', 'ProductController@uncompare')->name('product.uncompare');
 Route::resource('/cart', 'CartController');
 Route::resource('/checkout', 'CheckoutController');
+Route::get('refresh_captcha', 'HomeController@refreshCaptcha')->name('refresh_captcha');
 
 
 Auth::routes();
@@ -36,5 +37,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('/product', 'ProductController');
     Route::get('specification/delete/{id}', 'SpecificationController@delete')->name('specification.delete');
     Route::resource('/specification', 'SpecificationController');
+});
+
+
+
+
+Route::get('/empty', function(){
+	Cart::destroy();
+	return 'Destroyed Successfully';
 });
 

@@ -234,7 +234,13 @@
                                     <h3><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></h3>
                                     <h4>{{ $product->present_price }}</h4>
                                     <span><del>LKR {{ $product->previous_price }}</del></span>
-                                    <button>Add to cart</button>
+                                    <form action="{{ route('cart.store') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $product->id }}">
+                                        <input type="hidden" name="name" value="{{ $product->name }}">
+                                        <input type="hidden" name="present_price" value="{{ $product->present_price }}">
+                                        <button type="submit">Add to cart</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,15 @@
 @extends('layouts.frontend.app')
 @section('title', 'Product')
 @push('css')
+    <style>
+        .quantity{
+            width: 10%;
+        }
+        .slider-form form {
+            position: relative;
+            margin-right: 0px !important;
+        }
+    </style>
 @endpush
 @section('content')
 <main>
@@ -15,7 +24,7 @@
                             <h5 class="modal-title" id="exampleModalLongTitle">MOU Balance</h5>
                         </div>
                         <div class="col-12 col-sm-8 col-md-6 text-right text-center text-sm-right">
-                            <p>Available MOU : 20,000.00 Utilized MOU : 20,000.00 </p>
+                            <p>Available MOU : 20,000.00 Utilized MOU : 20,000.00</p>
                         </div>
                     </div>
                 </div>
@@ -170,11 +179,15 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="slider-infoinstock slider-form">
-                                        <form action="#">
-                                            <label>QTY:</label>
-                                            <input class="custom-select" type="number" placeholder="1">
+                                        {{-- <label>QTY:</label>
+                                            <input class="quantity" class="custom-select" type="number" placeholder="1"> --}}
+                                        <form action="{{ route('cart.store') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $product->id }}">
+                                            <input type="hidden" name="name" value="{{ $product->name }}">
+                                            <input type="hidden" name="present_price" value="{{ $product->present_price }}">
+                                            <button type="submit" class="red"><span class="pr-1">add to cart</span></button>
                                         </form>
-                                        <button class="red">add to cart</button>
                                     </div>
                                 </div>
                                 <div class="col-12">

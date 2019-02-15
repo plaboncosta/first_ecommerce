@@ -28,6 +28,16 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app'
-});
+// const app = new Vue({
+//     el: '#app'
+// });
+
+$(".btn-refresh").click(function() {
+    $.ajax({
+        type: 'GET',
+        url: '/refresh_captcha',
+        success: function(data) {
+            $(".captcha span").html(data.captcha);
+        }
+    })
+})

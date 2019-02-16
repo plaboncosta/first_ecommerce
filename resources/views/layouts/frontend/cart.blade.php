@@ -159,7 +159,7 @@
                         </th>
                         <th scope="col" class="pt-0">
                           <div class="items">
-                            <h2>Subtotal</h2>
+                            <h2>Product_Subtotal</h2>
                           </div>
                         </th>
                       </tr>
@@ -197,7 +197,10 @@
                           </td>
                           <td>
                             <div class="shopping-item shopping-content">
-                              <h3>LKR {{ Cart::subtotal() }}</h3>
+                              @php
+                            $single_product_subtotal = $item->model->present_price * $item->qty;
+                              @endphp
+                              <h3>LKR {{ $single_product_subtotal }}</h3>
                             </div>
                           </td>
                         </tr>

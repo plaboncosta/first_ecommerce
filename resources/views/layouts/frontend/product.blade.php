@@ -9,6 +9,16 @@
             position: relative;
             margin-right: 0px !important;
         }
+        .quantity{
+            margin-right: 15px !important;
+            margin-top: -5px !important;
+        }
+        .slider-infoinstock button span {
+            display: block;
+            margin-bottom: -2px !important;
+            font-weight: 500;
+            text-align: left;
+        }
     </style>
 @endpush
 @section('content')
@@ -179,10 +189,11 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="slider-infoinstock slider-form">
-                                        {{-- <label>QTY:</label>
-                                            <input class="quantity" class="custom-select" type="number" placeholder="1"> --}}
+                                        
                                         <form action="{{ route('cart.store') }}" method="post">
                                             @csrf
+                                            <label>QTY:</label>
+                                            <input class="quantity" class="custom-select" type="number" name="quantity" placeholder="1">
                                             <input type="hidden" name="id" value="{{ $product->id }}">
                                             <input type="hidden" name="name" value="{{ $product->name }}">
                                             <input type="hidden" name="present_price" value="{{ $product->present_price }}">

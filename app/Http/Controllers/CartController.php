@@ -37,6 +37,9 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'quantity' => 'required|numeric|between:1,5'
+        ]);
         $duplicates = Cart::search(function($cartItem, $rowId) use ($request) {
             return $cartItem->id == $request->id; 
         });
@@ -48,7 +51,7 @@ class CartController extends Controller
             return redirect()->route('cart.index');
         }
 
-        Cart::add($request->id, $request->name, 1, $request->present_price)->associate('App\Product');
+        Cart::add($request->id, $request->name, $request->quantity, $request->present_price)->associate('App\Product');
 
         Toastr::success('Product added in your cart successfully', 'Success!');
         return redirect()->route('cart.index');

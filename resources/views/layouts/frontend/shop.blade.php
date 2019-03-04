@@ -207,7 +207,6 @@
                                                 <span>LKR {{ $product->present_price }}</span>
                                                 <form action="{{ route('cart.store') }}" method="post">
                                                     @csrf
-                                                    <label>QTY:</label>
                                                     <input class="quantity" class="custom-select" type="hidden" name="quantity" placeholder="1" value="1">
                                                     <input type="hidden" name="id" value="{{ $product->id }}">
                                                     <input type="hidden" name="name" value="{{ $product->name }}">

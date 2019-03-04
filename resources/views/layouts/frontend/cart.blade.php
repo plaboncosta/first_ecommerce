@@ -33,7 +33,7 @@
       color: #000000;
       font-size: 12px;
   }
-  .continue-button{
+  .continue-button, .checkout-button{
     padding: 15px !important;
   }
 </style>
@@ -198,7 +198,7 @@
                           <td>
                             <div class="shopping-item shopping-content">
                               @php
-                            $single_product_subtotal = $item->model->present_price * $item->qty;
+                                $single_product_subtotal = $item->model->present_price * $item->qty;
                               @endphp
                               <h3>LKR {{ $single_product_subtotal }}</h3>
                             </div>
@@ -235,7 +235,10 @@
                 <h4>LKR {{ Cart::total() }}</h4>
               </div>
               <div class="check-out-btna text-center">
-                <button class=" btn-block mb-20">Proceed to checkout</button>
+                <a href="{{ route('checkout.index') }}">
+                  <button class=" btn-block mb-20 checkout-button">Proceed to checkout
+                  </button>
+                </a>
                 <a href="{{ route('shop') }}"><button class=" btn-block red-btn continue-button">Continue Shopping</button></a>
               </div>
             </div>

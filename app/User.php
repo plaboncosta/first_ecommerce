@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Cache;
 
 class User extends Authenticatable
 {
@@ -41,4 +42,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Role');
     }
+
+    public function isOnline()
+    {
+        return Cache::has('user-is-online', $this->id);
+    }
+
 }

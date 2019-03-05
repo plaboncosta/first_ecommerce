@@ -135,11 +135,19 @@
     </div>
 
     <!-- payment-header-area-end -->
+    {{-- @php
+        $payment_message = Session::get('payment_message');
+    @endphp --}}
     <!-- payment-area-start -->
     <section class="payment-area">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-8">
+                    {{-- @if(Session::has('payment_message'))
+                        <div class="alert alert-success" role="alert">
+                            {{ $payment_message }}
+                        </div>
+                    @endif --}}
                     {{-- <div class="row">
                         <div class="col-12">
                             <div class="payment-method-title text-left xs-mb-0">
@@ -206,23 +214,23 @@
                             <div class="row">
                                 <div class="col-12">
                                     <label for="name">Name*</label>
-                                    <input type="text" id="name" name="name">
+                                <input type="text" id="name" name="name" value="{{ old('name') }}">
                                 </div>
                                 <div class="col-6 pr-0">
                                     <label for="email">Email address*</label>
-                                    <input type="text" id="email" name="email">
+                                    <input type="text" id="email" name="email" value="{{ old('email') }}">
                                 </div>
                                 <div class="col-6">
                                     <label for="phone">Phone Number*</label>
-                                    <input type="text" id="phone" name="phone">
+                                    <input type="text" id="phone" name="phone" value="{{ old('phone') }}">
                                 </div>
                                 <div class="col-12">
                                     <label for="address">Address*</label>
-                                    <input type="text" id="address" name="address">
+                                    <input type="text" id="address" name="address" value="{{ old('address') }}">
                                 </div>
                                 <div class="col-12">
                                     <label for="country">Country*</label>
-                                    <input id="country" type="text" placeholder="Sri Lanka" name="country">
+                                    <input id="country" type="text" placeholder="Sri Lanka" name="country" value="{{ old('country') }}">
                                     <i class=" fas fa-angle-down"></i>
                                 </div>
                             </div>
@@ -230,20 +238,20 @@
                                 <div class="col-12 col-md-12 col-lg-6 pr-0">
                                     <div class="form">
                                         <label for="city">City*</label>
-                                        <input id="city" name="city" type="text">
+                                        <input id="city" name="city" type="text" value="{{ old('city') }}">
                                     </div>
                                 </div>
                                 <div class="col-12  col-md-12 col-lg-3 pr-0">
                                     <div class="form">
                                         <label name="province">State/Province*</label>
-                                        <input id="province" name="province" type="text" placeholder="Select">
+                                        <input id="province" name="province" type="text" placeholder="Select" value="{{ old('province') }}">
                                         <i class=" fas fa-angle-down"></i>
                                     </div>
                                 </div>
                                 <div class="col-12  col-md-12 col-lg-3">
                                     <div class="form">
                                         <label for="postalcode">Zip/Postal Code*</label>
-                                        <input id="postalcode" name="postalcode" type="text">
+                                        <input id="postalcode" name="postalcode" type="text" value="{{ old('postalcode') }}">
                                     </div>
                                 </div>
 
@@ -260,13 +268,13 @@
                                 </div> --}}
 
                                 <div class="col-12">
-                                    <label for="name_on_card">Name on card</label>
-                                    <input type="text" name="name_on_card" id="name_on_card">
+                                    <label for="name_on_card">Name on card*</label>
+                                    <input type="text" name="name_on_card" id="name_on_card" value="{{ old('name_on_card') }}">
                                 </div>
 
                                 {{-- Stripe Card Payment --}}
                                 <div class="col-12">
-                                    <label for="card-element">Credit or debit card</label>
+                                    <label for="card-element">Credit or debit card*</label>
                                     <div id="card-element"></div>
                                     <!-- Used to display form errors. -->
                                     <div id="card-errors" role="alert"></div>

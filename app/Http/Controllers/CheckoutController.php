@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Session;
+use Brian2694\Toastr\Facades\Toastr;
+use Cartalyst\Stripe\Exception\CardErrorException;
+use App\Http\Requests\CheckoutRequest;
 
 class CheckoutController extends Controller
 {
@@ -32,9 +38,42 @@ class CheckoutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CheckoutRequest $request)
     {
-        return $request;
+        if(Cart::count() > 0)
+        {
+            $contents = Cart::content()->map(function($item){
+                  return $item->model->slug . ', ' . $item->qty;
+            })->values()->toJson();
+
+            try {
+                $charge = Stripe::charges()->create([
+                    'amount' => Cart::total(),
+                    'currency' => 'BDT',
+                    'source' => $request->stripeToken,
+                    'description' => 'Order',
+                    'receipt_email' => $request->email,
+                    'metadata' => [
+                        'contents' => $contents,
+                        'quantity' => Cart::count(),
+                    ],
+                ]);
+
+                // Session::put('payment_message', 'You have paid successfully');
+                Toastr::success('success', 'You have paid successfully');
+                Cart::destroy();
+                return redirect()->route('welcome');
+            } catch (CardErrorException $e) {
+                Toastr::error($e->getMessage(), 'Access denied!');
+                return redirect()->back();
+            }
+        }
+        else {
+            Toastr::error('You should choose a product first!', 'Access denied!');
+            return redirect()->back();
+        }
+
+        
     }
 
     /**

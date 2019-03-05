@@ -33,6 +33,7 @@ display: block;
             <h3 class="page-title">
             Product Create <span class="badge"></span>
             </h3>
+            <h4 class="text-danger"><strong>Don't forget add specification of this product!</strong></h4>
             <div class="row">
                 <div class="col-md-12">
                     <!-- BORDERED TABLE -->

@@ -27,6 +27,7 @@
         @endforeach
     @endif
 </script>
+
 {!! Toastr::message() !!}
 </body>
 

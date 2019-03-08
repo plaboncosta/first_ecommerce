@@ -18,8 +18,10 @@ Route::get('/product/show/{slug}', 'ProductController@show')->name('product.show
 Route::get('/product/compare/{slug}', 'ProductController@compare')->name('product.compare');
 Route::get('/product/uncompare/{slug}', 'ProductController@uncompare')->name('product.uncompare');
 Route::resource('/cart', 'CartController');
-Route::resource('/checkout', 'CheckoutController');
-Route::get('refresh_captcha', 'HomeController@refreshCaptcha')->name('refresh_captcha');
+Route::resource('/checkout', 'CheckoutController')->middleware('auth');
+Route::get('/refresh_captcha', 'HomeController@refreshCaptcha')->name('refresh_captcha');
+Route::post('/search', 'SearchController@index')->name('search');
+// Route::post('/search/autocomplete', 'SearchController@search')->name('search.autocomplete');
 
 
 Auth::routes();

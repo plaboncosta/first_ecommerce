@@ -150,6 +150,7 @@
                                         <span class="helper-text"><i class="fa fa-lock"></i> <a href="{{ route('password.request') }}">Forgot password?</a></span>
                                     </div>
                                 @endif
+                                <a class="btn btn-warning" href="{{ route('register') }}">Sign up to continue with us!</a>
                             </form>
                         </div>
                     </div>

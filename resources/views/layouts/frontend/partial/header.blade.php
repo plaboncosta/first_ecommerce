@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="header-top-info text-right">
-                        <h5><button data-toggle="modal" data-target="#exampleModalCenter">MOU Balance: XXXXXX</button> | <a href="#">Logout</a></h5>
+                        <h5><button style="color: blue;" data-toggle="modal" data-target="#exampleModalCenter">Check Cart List</button> | <a href="#">Total Balance: {{ Cart::total() }}</a></h5>
                     </div>
                 </div>
             </div>
@@ -22,12 +22,13 @@
                     <div class="search-bar d-flex align-items-center">
                         <div class="search-form d-flex align-items-center">
                             <span>search</span>
-                            <form action="#">
-                                <input type="text">
-                                <button>
-                                <i class="ti-search"></i>
+                        <form action="{{ route('search') }}" method="POST">
+                            @csrf
+                            <input id="name" type="text" name="name" value="{{ request()->input('name') }}">
+                            <button type="submit">
+                                <i style="color: #000; font-weight: 800;" class="ti-search"></i>
                             </button>
-                            </form>
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -62,7 +63,6 @@
                             <ul class=" list-unstyled">
                                 <li> <a href="{{ route('welcome') }}">Home <i class="ti-angle-down"></i></a> </li>
                                 <li> <a href="{{ route('shop') }}">Shop <i class="ti-angle-down"></i></a> </li>
-                                <li> <a href="#">About<i class="ti-angle-down"></i></a> </li>
                                 @guest
                                     <li> <a href="{{ route('login') }}">Login </a> </li>
                                     <li> <a href="{{ route('register') }}">Register </a> </li>
